@@ -18,18 +18,21 @@
     "webfont"
   ],
   "author": "Kamal R <kamalasaurus@gmail.com>",
-  "contributors": [{
-    "name": "Elle Kasai",
-    "email": "elle.kasai@gmail.com"
-  }, {
-    "name": "Angel Cruz",
-    "email": "me@abr4xas.org"
-  }, {
-    "name": "Fake Unicode"
-  }],
+  "contributors": [
+    {
+      "name": "Elle Kasai",
+      "email": "elle.kasai@gmail.com"
+    },
+    {
+      "name": "Angel Cruz",
+      "email": "me@abr4xas.org"
+    },
+    {
+      "name": "Fake Unicode"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
-    "jsdom": "^9.4.1",
     "wget": "0.0.1"
   }
 }
