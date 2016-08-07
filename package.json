@@ -1,0 +1,22 @@
+{
+  "name": "twemoji-update",
+  "version": "1.0.0",
+  "description": "get full unicode to human name conversions for unicode 2.x",
+  "main": "unicodeMapper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "twemoji",
+    "emoji",
+    "scraper",
+    "awesome",
+    "possum"
+  ],
+  "author": "kamalasaurus@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^9.4.1",
+    "wget": "0.0.1"
+  }
+}
