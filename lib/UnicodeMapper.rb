@@ -10,7 +10,7 @@ require 'csv'
 
 module UnicodeMapper
 
-  @UNICODE_URL =  "http://unicode.org/emoji/charts/full-emoji-list.html"
+  @URL =  "http://unicode.org/emoji/charts/full-emoji-list.html"
   @OUTPUT_PATH = File.join(File.expand_path("..", Dir.pwd), "tmp", "full-emoji-list.csv")
 
 
@@ -89,7 +89,7 @@ module UnicodeMapper
     puts "generating unicode hex code point to human readable names list"
 
     puts "loading full emoji list"
-    doc = Nokogiri::HTML(open(@UNICODE_URL))
+    doc = Nokogiri::HTML(open(@URL))
 
     puts "emoji list loaded, converting to map"
     emoji_entries = doc
