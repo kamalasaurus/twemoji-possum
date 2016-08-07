@@ -45,6 +45,13 @@
 * NOTES:
 *
 * Make sure to read the README.md to see how to build the project!
+*
+* Other than the list employed, you can see the authoritative published
+* unicode documentations here:
+*
+* http://www.unicode.org/Public/9.0.0/ucd/UnicodeData.txt
+* http://www.unicode.org/Public/emoji/3.0//emoji-sequences.txt
+* https://github.com/twitter/twemoji/tree/gh-pages/svg
 ***************************************************************************/
 
 /***************************************************************************
@@ -64,6 +71,8 @@ var jsdom = require('jsdom');
 * top for easy maintenance, search for the variable name (e.g. UNICODE_URL)
 * to find where they are used in the script 👍
 ***************************************************************************/
+
+var FULL_EMOJI_LIST = 'http://unicode.org/emoji/charts/full-emoji-list.html';
 
 var UNICODE_URL = 'http://www.unicode.org/Public/9.0.0/ucd/UnicodeData.txt';
 var ZWJS_URL ='http://www.unicode.org/Public/emoji/3.0//emoji-sequences.txt';
