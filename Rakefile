@@ -1,16 +1,19 @@
-load 'lib/UnicodeMapper.rb'
-#load 'lib/TwemojiMapper.rb'
-#load 'lib/CombineMapper.rb'
-#load 'lib/CustomMapper.rb'
-#load 'lib/CssConverter.rb'
+require 'open4'
+require 'colored'
 
 desc 'run all transforms in sequence'
 task default: [:map_unicode, :map_twemoji, :combine_maps, :custom_rules, :convert_to_css]
 
 desc 'map the unicode from source'
 task :map_unicode do
-  ruby 'lib/UnicodeMapper.rb'
-  puts "Generated map of Unicode 'code point' : 'human name'"
+  puts "\n"
+  puts "Creating Unicode Map".bold.yellow
+  puts "\n"
+  Open4.popen4("ruby ./lib/UnicodeMapper.rb") do |pid, stdin, stdout, stderr|
+    stdout.each { |line| puts line }
+  end
+  puts "\n"
+  puts "Generated map of Unicode 'code point' : 'human name'".bold.green
 end
 
 #task :map_twemoji do

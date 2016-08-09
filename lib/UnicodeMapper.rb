@@ -11,18 +11,15 @@ require 'csv'
 URL =  "http://unicode.org/emoji/charts/full-emoji-list.html"
 OUTPUT_PATH = File.join(Dir.pwd, "tmp", "full_emoji_list.csv")
 
+# this will be called from a rake task primarily, so the stdout
+# buffer needs to make it through to the caller's context
+$stdout.sync = true
+
 
 
 #######################################################
 # FUNCTIONS: for process legibility
 #######################################################
-
-def numberOf node
-  node.css("td.rchars")[0]
-    .children
-    .text
-    .to_i
-end
 
 def codeOf node
   node.css("td.code a")[0]
@@ -32,7 +29,7 @@ def codeOf node
 end
 
 def nameOf node
-  node.css("td.name")[0]
+  name = node.css("td.name")[0]
     .children
     .text
     .downcase
@@ -40,6 +37,8 @@ def nameOf node
     .gsub(/\s+/, "-")
     .gsub(/,/, "")
     .gsub(/:/, "")
+
+  { node: node, name: name }
 end
 
 def flagNameOf node
@@ -53,8 +52,20 @@ def flagNameOf node
     .gsub(/,/, "")
 end
 
-def substituteEquivalent str
-  str.include?("≊") ? str.split("≊")[1].strip.sub(/^-/, '') : str
+def substForFlag obj
+  str = obj[:name]
+  # upon writing, all flag names were designated as "regional indicator"
+  name = str.include?("regional-indicator-symbol") ? flagNameOf(obj[:node]) : str
+
+  { node: obj[:node], name: name }
+end
+
+def substituteEquivalent obj
+  str = obj[:name]
+  # some of the clunkier names have an ≊ moniker for a simpler name
+  name = str.include?("≊") ? str.split("≊")[1].strip.sub(/^-/, '') : str
+
+  { node: obj[:node], name: name }
 end
 
 
@@ -63,17 +74,15 @@ end
 # ANONYMOUS FXNS: for call-chaining legibility
 #######################################################
 
+# this removes the "th" rows from the scrape because they don't
+# have any important info
 withoutHeaders = lambda { |node| node.child.name != "th" }
 
+# this creates the mapping pairs by chaining the methods in the
+# FUNCTIONS subheading
 codeToName = lambda do |node|
-  row = numberOf node
   code_point = codeOf node
-
-  if row >= 1535
-    human_name = flagNameOf node
-  else
-    human_name = substituteEquivalent nameOf node
-  end
+  human_name = (substForFlag substituteEquivalent nameOf node)[:name]
 
   [ code_point, human_name ]
 end
