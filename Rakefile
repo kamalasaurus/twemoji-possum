@@ -1,6 +1,8 @@
 require 'open4'
 require 'colored'
 
+BASEPATH =  File.join(Dir.pwd, "src")
+
 desc 'run all transforms in sequence'
 task default: [:map_unicode, :map_twemoji, :combine_maps, :custom_rules, :convert_to_css]
 
@@ -9,7 +11,7 @@ task :map_unicode do
   puts "\n"
   puts "Creating Unicode Map".bold.yellow
   puts "\n"
-  Open4.popen4("ruby ./lib/UnicodeMapper.rb") do |pid, stdin, stdout, stderr|
+    Open4.popen4("ruby #{File.join(BASEPATH, "UnicodeMapper.rb")}") do |pid, stdin, stdout, stderr|
     stdout.each { |line| puts line }
   end
   puts "\n"
