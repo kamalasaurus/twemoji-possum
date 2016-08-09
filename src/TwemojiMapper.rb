@@ -8,7 +8,7 @@ require 'open-uri'
 require 'csv'
 
 URL = "https://twemoji.maxcdn.com/2/test/preview.html"
-OUTPUT_PATH = File.join(Dir.pwd, "tmp", "twemoji_list.csv")
+OUTPUT_PATH = File.join(Dir.pwd, "dist", "twemoji_list.csv")
 
 $stdout.sync = true
 
@@ -47,7 +47,7 @@ end
 puts "generating twemoji code point list"
 
 puts "loading full twemoji list"
-doc = Nokogiri::HTML(open(@URL))
+doc = Nokogiri::HTML(open(URL))
 
 puts "twemoji list loaded, converting to list"
 twemoji_entries = doc

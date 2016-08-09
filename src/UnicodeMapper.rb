@@ -9,7 +9,7 @@ require 'open-uri'
 require 'csv'
 
 URL =  "http://unicode.org/emoji/charts/full-emoji-list.html"
-OUTPUT_PATH = File.join(Dir.pwd, "tmp", "full_emoji_list.csv")
+OUTPUT_PATH = File.join(Dir.pwd, "dist", "full_emoji_list.csv")
 
 # this will be called from a rake task primarily, so the stdout
 # buffer needs to make it through to the caller's context
