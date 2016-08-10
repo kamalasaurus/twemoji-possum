@@ -37,12 +37,22 @@ def nameOf node
     .gsub(/\s+/, "-")
     .gsub(/,/, "")
     .gsub(/:/, "")
+    .gsub("!", "")
 
   { node: node, name: name }
 end
 
+def swapBackwardsFlagName name
+  name_arr = name.split("-")
+  if name_arr.length == 2 and name_arr[0] == "flag"
+    name_arr.reverse.join("-")
+  else
+    name
+  end
+end
+
 def flagNameOf node
-  node.css("td.name")[1]
+  name = node.css("td.name")[1]
     .children
     .css("a")
     .children
@@ -50,6 +60,9 @@ def flagNameOf node
     .join("-")
     .gsub(/\s+/, "-")
     .gsub(/,/, "")
+    .gsub("!", "")
+
+  swapBackwardsFlagName name
 end
 
 def substForFlag obj

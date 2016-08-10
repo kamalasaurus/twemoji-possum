@@ -31,11 +31,15 @@ task :map_twemoji do
   puts "Generated list of Twemoji code points".bold.green
 end
 
-#desc 'combine maps'
-#task :combine_maps do
-  #CombineMapper.generateCSV
-  #puts "Generated map of Twemoji 'code point' : 'human name' and lists of unused values"
-#end
+desc 'combine twemoji and unicode maps'
+task :combine_maps do
+  puts "\n"
+  puts "Combining Maps".bold.yellow
+  puts "\n"
+  runTask("CombineMapper.rb")
+  puts "\n"
+  puts "Generated map of Twemoji 'code point' : 'human name' and lists of unused values".bold.green
+end
 
 #desc 'apply custom rules from Elle Kasai (emoji cheat sheet) and twitter custom icons'
 #task :custom_rules do
