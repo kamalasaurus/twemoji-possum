@@ -38,14 +38,17 @@ def nameOf node
     .gsub(/,/, "")
     .gsub(/:/, "")
     .gsub("!", "")
+    .gsub("'", "")
 
   { node: node, name: name }
 end
 
 def swapBackwardsFlagName name
-  name_arr = name.split("-")
-  if name_arr.length == 2 and name_arr[0] == "flag"
-    name_arr.reverse.join("-")
+  if name.match("flag")
+    name
+      .split("-")
+      .insert(-1, c.delete_at(c.index("flag"))) # moves flag to the end
+      .join("-")
   else
     name
   end
@@ -61,6 +64,7 @@ def flagNameOf node
     .gsub(/\s+/, "-")
     .gsub(/,/, "")
     .gsub("!", "")
+    .gsum("'", "")
 
   swapBackwardsFlagName name
 end
