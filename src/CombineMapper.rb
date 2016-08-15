@@ -30,8 +30,8 @@ CSV.foreach(TWEMOJI_PATH) do |row|
   custom_val = custom_map[key] # always array
 
   combine_map[key] = []
-  combine_map[key] += unicode_val if !unicode_val.empty?
-  combine_map[key] += custom_val if !custom_val.empty? and custom_val != unicode_val
+  combine_map[key] += unicode_val if !unicode_val.to_a.empty?
+  combine_map[key] += custom_val if !custom_val.to_a.empty? and custom_val != unicode_val
 end
 
 null_map = {}

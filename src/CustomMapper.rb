@@ -25,7 +25,7 @@ custom_entries = JSON.parse(doc);
 
 puts "loading null list"
 doc2 = File.read(File.join(Dir.pwd, "lib", "null_list_rules.json"))
-null_entries = JSON.parse(doc)
+null_entries = JSON.parse(doc2)
 
 puts "list generated, writing csv"
 CSV.open(OUTPUT_PATH, "wb") do |csv|
