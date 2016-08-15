@@ -3,11 +3,11 @@ require 'colored'
 
 $stdout.sync = true
 
-UNICODE_PATH = File.join(Dir.pwd, "dist", "full_emoji_list.csv")
-TWEMOJI_PATH = File.join(Dir.pwd, "dist", "twemoji_list.csv")
-CUSTOM_PATH = File.join(Dir.pwd, "dist", "custom_list.csv")
-NULL_PATH = File.join(Dir.pwd, "dist", "NULL_LIST.csv")
-COMBINE_PATH = File.join(Dir.pwd, "dist", "twemoji_unicode_pairs.csv")
+UNICODE_PATH = File.join(Dir.pwd, "tmp", "full_emoji_list.csv")
+TWEMOJI_PATH = File.join(Dir.pwd, "tmp", "twemoji_list.csv")
+CUSTOM_PATH = File.join(Dir.pwd, "tmp", "custom_list.csv")
+NULL_PATH = File.join(Dir.pwd, "tmp", "NULL_LIST.csv")
+COMBINE_PATH = File.join(Dir.pwd, "tmp", "twemoji_unicode_pairs.csv")
 
 unicode_map = {}
 

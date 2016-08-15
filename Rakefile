@@ -8,9 +8,8 @@ def runTask scriptPath
   end
 end
 
-desc 'run all transforms in sequence'
-task default: [:map_unicode, :map_twemoji, :custom_rules, :combine_maps]
-#task default: [:map_unicode, :map_twemoji, :combine_maps, :custom_rules, :convert_to_css]
+desc "run all transforms in sequence"
+task default: [:map_unicode, :map_twemoji, :custom_rules, :combine_maps, :convert_to_scss]
 
 desc 'map unicode from source'
 task :map_unicode do
@@ -22,7 +21,7 @@ task :map_unicode do
   puts "Generated map of Unicode 'code point' : 'human name'".bold.green
 end
 
-desc 'map twemoji from source'
+desc "map twemoji from source"
 task :map_twemoji do
   puts "\n"
   puts "Creating Twemoji Map".bold.yellow
@@ -32,7 +31,7 @@ task :map_twemoji do
   puts "Generated list of Twemoji code points".bold.green
 end
 
-desc 'apply custom rules from Elle Kasai (emoji cheat sheet) and twitter custom icons'
+desc "apply custom rules from Elle Kasai (emoji cheat sheet) and twitter custom icons"
 task :custom_rules do
   puts "\n"
   puts "Creating Custom Map".bold.yellow
@@ -42,7 +41,7 @@ task :custom_rules do
   puts "Generated map of Custom 'code point' : 'human name'".bold.green
 end
 
-desc 'combine twemoji and unicode maps'
+desc "combine twemoji and unicode maps"
 task :combine_maps do
   puts "\n"
   puts "Combining Maps".bold.yellow
@@ -52,8 +51,13 @@ task :combine_maps do
   puts "Generated map of Twemoji 'code point' : 'human name' and lists of unused values".bold.green
 end
 
-#task :convert_to_css do
-  #CssConverter.generateCss
-  #puts "importable Css file for "
-#end
+desc "convert matched twemoji pairs to importable sass"
+task :convert_to_scss do
+  puts "\n"
+  puts "Converting to Sass".bold.yellow
+  puts "\n"
+  runTask("SassConverter.rb")
+  puts "\n"
+  puts "Generated Sass variable map for twemoji-awesome in dist directory".bold.green
+end
 

@@ -8,7 +8,7 @@ require 'open-uri'
 require 'csv'
 
 URL = "https://twemoji.maxcdn.com/2/test/preview.html"
-OUTPUT_PATH = File.join(Dir.pwd, "dist", "twemoji_list.csv")
+OUTPUT_PATH = File.join(Dir.pwd, "tmp", "twemoji_list.csv")
 
 $stdout.sync = true
 

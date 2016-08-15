@@ -9,7 +9,7 @@ require 'open-uri'
 require 'csv'
 
 URL =  "http://unicode.org/emoji/charts/full-emoji-list.html"
-OUTPUT_PATH = File.join(Dir.pwd, "dist", "full_emoji_list.csv")
+OUTPUT_PATH = File.join(Dir.pwd, "tmp", "full_emoji_list.csv")
 
 # this will be called from a rake task primarily, so the stdout
 # buffer needs to make it through to the caller's context
@@ -45,9 +45,9 @@ end
 
 def swapBackwardsFlagName name
   if name.match("flag")
-    name
-      .split("-")
-      .insert(-1, c.delete_at(c.index("flag"))) # moves flag to the end
+    n_array = name.split("-")
+    n_array
+      .insert(-1, n_array.delete_at(n_array.index("flag"))) # moves flag to the end
       .join("-")
   else
     name
@@ -64,7 +64,7 @@ def flagNameOf node
     .gsub(/\s+/, "-")
     .gsub(/,/, "")
     .gsub("!", "")
-    .gsum("'", "")
+    .gsub("'", "")
 
   swapBackwardsFlagName name
 end

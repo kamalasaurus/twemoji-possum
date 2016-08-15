@@ -7,7 +7,7 @@
 require 'json'
 require 'csv'
 
-OUTPUT_PATH = File.join(Dir.pwd, "dist", "custom_list.csv")
+OUTPUT_PATH = File.join(Dir.pwd, "tmp", "custom_list.csv")
 
 $stdout.sync = true
 
