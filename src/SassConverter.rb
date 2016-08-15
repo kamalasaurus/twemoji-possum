@@ -28,7 +28,7 @@ CSV.foreach(LIST_PATH) do |row|
 
   # directly creating the string list that will be put to the file
   names.each do |key|
-    entries << "#{key} : #{code_point},\n"
+    entries << "  \"#{key}\": \"#{code_point}\",\n"
   end
 end
 
