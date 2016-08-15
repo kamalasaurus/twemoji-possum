@@ -5,6 +5,3 @@ gem 'rake'
 gem 'open4'
 gem 'colored'
 
-gem 'capybara'
-gem 'poltergeist'
-

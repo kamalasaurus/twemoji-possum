@@ -9,7 +9,8 @@ def runTask scriptPath
 end
 
 desc 'run all transforms in sequence'
-task default: [:map_unicode, :map_twemoji, :combine_maps, :custom_rules, :convert_to_css]
+task default: [:map_unicode, :map_twemoji, :custom_rules, :combine_maps]
+#task default: [:map_unicode, :map_twemoji, :combine_maps, :custom_rules, :convert_to_css]
 
 desc 'map unicode from source'
 task :map_unicode do
@@ -31,6 +32,16 @@ task :map_twemoji do
   puts "Generated list of Twemoji code points".bold.green
 end
 
+desc 'apply custom rules from Elle Kasai (emoji cheat sheet) and twitter custom icons'
+task :custom_rules do
+  puts "\n"
+  puts "Creating Custom Map".bold.yellow
+  puts "\n"
+  runTask("CustomMapper.rb")
+  puts "\n"
+  puts "Generated map of Custom 'code point' : 'human name'".bold.green
+end
+
 desc 'combine twemoji and unicode maps'
 task :combine_maps do
   puts "\n"
@@ -40,12 +51,6 @@ task :combine_maps do
   puts "\n"
   puts "Generated map of Twemoji 'code point' : 'human name' and lists of unused values".bold.green
 end
-
-#desc 'apply custom rules from Elle Kasai (emoji cheat sheet) and twitter custom icons'
-#task :custom_rules do
-  #CustomMapper.generateCSV
-  #puts "Completed map by resolving unused value edge cases with custom rules"
-#end
 
 #task :convert_to_css do
   #CssConverter.generateCss
