@@ -1,8 +1,6 @@
 require 'csv'
 require 'colored'
 
-require 'pry'
-
 $stdout.sync = true
 
 UNICODE_PATH = File.join(Dir.pwd, "dist", "full_emoji_list.csv")
@@ -14,22 +12,26 @@ COMBINE_PATH = File.join(Dir.pwd, "dist", "twemoji_unicode_pairs.csv")
 unicode_map = {}
 
 CSV.foreach(UNICODE_PATH) do |row|
-  unicode_map[row[0].to_sym] = row[1]
+  unicode_map[row[0].to_sym] = row.drop(1)
 end
 
 custom_map = {}
 
 CSV.foreach(CUSTOM_PATH) do |row|
-  custom_map[row[0].to_sym] = row[1]
+  custom_map[row[0].to_sym] = row.drop(1)
 end
 
 combine_map = {}
 
 CSV.foreach(TWEMOJI_PATH) do |row|
   key = row[0].to_sym
+
+  unicode_val = unicode_map[key] # always array
+  custom_val = custom_map[key] # always array
+
   combine_map[key] = []
-  combine_map[key] << unicode_map[key] if !unicode_map[key].nil?
-  combine_map[key] << custom_map[key] if !custom_map[key].nil?
+  combine_map[key] += unicode_val if !unicode_val.empty?
+  combine_map[key] += custom_val if !custom_val.empty? and custom_val != unicode_val
 end
 
 null_map = {}

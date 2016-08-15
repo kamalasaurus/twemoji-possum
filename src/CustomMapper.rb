@@ -19,16 +19,21 @@ $stdout.sync = true
 
 puts "generating custom code point list"
 
-puts "loading custom list"
+puts "loading elle kasai emoji cheatsheet list"
 doc = File.read(File.join(Dir.pwd, "lib", "elle_kasai_emoji_cheatsheet.json"))
 custom_entries = JSON.parse(doc);
 
-puts "custom list loaded, converting to list"
+puts "loading null list"
+doc2 = File.read(File.join(Dir.pwd, "lib", "null_list_rules.json"))
+null_entries = JSON.parse(doc)
 
 puts "list generated, writing csv"
 CSV.open(OUTPUT_PATH, "wb") do |csv|
   custom_entries.each do |key, val|
     csv << [key, val]
+  end
+  null_entries.each do |key, val|
+    csv << [key, *val]
   end
 end
 
