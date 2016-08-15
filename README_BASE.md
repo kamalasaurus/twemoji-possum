@@ -105,10 +105,5 @@ than to parse and munge overinclusive text files 😅
 Since everything is hosted at unicode.org, I'm assuming it'll be
 maintained properly ¯\\_(ツ)_/¯
 
-### Twemoji Repo
-
-Is included as a submodule! https://github.com/jollygoodcode/twemoji/blob/master/lib/twemoji/svg.rb contains the names used internally by Twitter's team as a ruby file, this is parsed and added to the general rule list. In theory, this means even less custom rules to be defined.
-
 ### Twemoji Cheat Sheet
-
 
