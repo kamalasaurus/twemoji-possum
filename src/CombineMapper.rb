@@ -21,24 +21,24 @@ CSV.foreach(CUSTOM_PATH) do |row|
   custom_map[row[0].to_sym] = row[1]
 end
 
-twemoji_map = {}
+combine_map = {}
 
 CSV.foreach(TWEMOJI_PATH) do |row|
   key = row[0].to_sym
-  twemoji_map[key] = [unicode_map[key]]
+  combine_map[key] = [unicode_map[key]]
 
   if !custom_map[key].nil?
-    if twemoji_map[key].nil?
-      twemoji_map[key] = [custom_map[key]]
+    if unicode_map[key].nil?
+      combine_map[key] = [custom_map[key]]
     else
-      twemoji_map[key] << custom_map[key]
+      combine_map[key] << custom_map[key]
     end
   end
 end
 
 null_map = {}
 
-twemoji_map.each do |key, val|
+combine_map.each do |key, val|
   null_map[key] = val if val.nil?
 end
 
@@ -53,7 +53,7 @@ CSV.open(NULL_PATH, "wb") do |csv|
 end
 
 CSV.open(COMBINE_PATH, "wb") do |csv|
-  twemoji_map.each do |key, val|
+  combine_map.each do |key, val|
     csv << [key.to_s, *val]
   end
 end
