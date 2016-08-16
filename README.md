@@ -180,6 +180,9 @@ Make sure you have sass!  `gem install sass`.
 
 This will generate a new twemoji-awesome.css.
 
+If for some reason, sass just dumps the compiled output into the buffer,
+use `sass twemoji-awesome.scss > twemoji-awesome.css`
+
 It's unlikely anyone will be using this repo directly, since it's meant
 to just generate a component for twemoji-awesome, the css of which is
 what is intended for consumption!  But if you want to contribute by

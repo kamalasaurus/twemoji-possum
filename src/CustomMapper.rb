@@ -8,7 +8,7 @@ require 'json'
 require 'csv'
 
 OUTPUT_PATH = File.join(Dir.pwd, "tmp", "custom-list.csv")
-EMOJI_CHEAT_SHEET_PATH = File.join(Dir.pwd, "lib", "modified-cheatsheet.json")
+EMOJI_CHEAT_SHEET_PATH = File.join(Dir.pwd, "lib", "modified-cheat-sheet.json")
 NULL_LIST_PATH = File.join(Dir.pwd, "lib", "null-list-rules.json")
 
 $stdout.sync = true
