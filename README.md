@@ -172,9 +172,16 @@ maintained properly ¯\\_(ツ)_/¯
 
 ### How to use
 
-I don't want to do anything too fancy with git submodules just yet, for
-the time being, just manually copy `dist/emoji_map.scss` into
-twemoji-awesome's root directory and run `sass twemoji-awesome.scss`.
+It's unlikely anyone will be using this repo directly, since it's meant
+to just generate a component for twemoji-awesome, the css of which is
+what is intended for consumption!  But if you want to contribute by
+adding custom names and stuff to the rule list, this is the place to do
+it!
+
+This project is stored as a submodule in twemoji-awesome, so make your
+changes, make a pull request, update to the latest submodule state and
+in the twemoji-awesome root directory run `sass twemoji-awesome.scss`.
+
 Make sure you have sass!  `gem install sass`.
 - http://sass-lang.com/documentation/
 
@@ -183,11 +190,10 @@ This will generate a new twemoji-awesome.css.
 If for some reason, sass just dumps the compiled output into the buffer,
 use `sass twemoji-awesome.scss > twemoji-awesome.css`
 
-It's unlikely anyone will be using this repo directly, since it's meant
-to just generate a component for twemoji-awesome, the css of which is
-what is intended for consumption!  But if you want to contribute by
-adding custom names and stuff to the rule list, this is the place to do
-it!
+You can also manually copy your output `dist/emoji-map.scss` to the root
+of twemoji-awesome and and change the `@import` directive to point at
+your generated file to test out your custom rules if you don't want to
+deal with the pull request process.
 
 ### Twemoji Cheat Sheet
 
