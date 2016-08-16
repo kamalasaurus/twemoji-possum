@@ -39,6 +39,7 @@ def nameOf node
     .gsub(/:/, "")
     .gsub("!", "exc")
     .gsub("'", "")
+    .gsub("’", "")
 
   { node: node, name: name }
 end
@@ -65,6 +66,7 @@ def flagNameOf node
     .gsub(/,/, "")
     .gsub("!", "exc")
     .gsub("'", "")
+    .gsub("’", "")
 
   swapBackwardsFlagName name
 end

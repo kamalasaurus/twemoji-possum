@@ -46,7 +46,7 @@ the values were pulled as of:
 
 These were pulled from either the twemoji-awesome repo or filled in extensions from
 unicode's naming scheme; twemoji-awesome's rules are derived from
-emoji-cheat-sheat.  `lib/null_list_rules` are gap-fillers for twitter's
+emoji-cheat-sheat.  `lib/null-list-rules` are gap-fillers for twitter's
 non-standard or cutting edge emoji's that didn't exist in any other
 list.
 
@@ -105,7 +105,7 @@ because Unicode encodes them as:
 
 The modified custom rules are in `lib/modified-cheat-sheet.json`, the
 original emoji-cheat-sheet can be found in
-`lib/elle-kasai-emoji-cheatsheet.json`
+`errata/elle-kasai-emoji-cheatsheet.json`
 
 ### Author
 
