@@ -50,6 +50,63 @@ emoji-cheat-sheat.  `lib/null_list_rules` are gap-fillers for twitter's
 non-standard or cutting edge emoji's that didn't exist in any other
 list.
 
+### Collisions
+
+In the event of a collision between names, the Unicode Consortium gets
+the name on preference at the expense of custom rules.
+
+The following rules were deprecated from emoji-cheat-sheet and modified
+to match the Unicode Consortium name for their code point:
+
+- post-office: 1f3e3 => japanese-post-office
+- camel: 1f42b => two-hump-camel
+- mouse: 1f42d => mouse-face
+- cow: 1f42e => cow-face
+- tiger: 1f42f => tiger-face
+- rabbit: 1f430 => rabbit-face
+- cat: 1f431 => cat-face
+- whale: 1f433 => spouting-whale
+- horse: 1f434 => horse-face
+- dog: 1f436 => dog-face
+- pig: 1f437 => pig-face
+- kiss: 1f48b => kiss-mark
+- calendar: 1f4c6 => tear-off-calendar
+- speaker: 1f50a => speaker-loud
+- sunglasses,1f60e => smiling-face-with-sunglasses
+- satellite: 1f4e1 => satellite-antenna
+- egg: 1f373 => cooking
+- umbrella: 2614 => umbrella-with-rain-drops
+- snowman: 26c4 => snowman-without-snow
+- raised-hand: 1f64b => happy-person-raising-hand
+
+
+because Unicode encodes them as:
+
+post-office: 1f3e4
+camel: 1f42a
+mouse: 1f401
+cow: 1f404
+tiger: 1f405
+rabbit: 1f407
+cat: 1f408
+whale: 1f40b
+horse: 1f40e
+dog: 1f415
+pig: 1f416
+kiss: 1f48f
+calendar: 1f4c5
+speaker: 1f508
+sunglasses: 1f576
+satellite: 1f6f0
+egg: 1f95a
+umbrella: 2602
+snowman: 2603
+raised-hand: 270b
+
+The modified custom rules are in `lib/modified-cheat-sheet.json`, the
+original emoji-cheat-sheet can be found in
+`lib/elle-kasai-emoji-cheatsheet.json`
+
 ### Author
 
 👳🏾 Kamal R

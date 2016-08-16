@@ -13,7 +13,7 @@
 1f196,squared-ng,ng
 1f197,squared-ok,ok
 1f198,squared-sos,sos
-1f199,up-button,up
+1f199,upexc-button,up
 1f19a,squared-vs,vs
 1f1e6-1f1e8,ascension-island-flag
 1f1e6-1f1e9,andorra-flag
@@ -1075,7 +1075,7 @@
 1f518,radio-button
 1f519,back-arrow
 1f51a,end-arrow,end
-1f51b,on-arrow,on
+1f51b,onexc-arrow,on
 1f51c,soon-arrow,soon
 1f51d,top-arrow,top
 1f51e,no-one-under-eighteen,underage

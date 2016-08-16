@@ -1369,7 +1369,7 @@
 1f504,anticlockwise-arrows-button
 1f519,back-arrow
 1f51a,end-arrow
-1f51b,on-arrow
+1f51b,onexc-arrow
 1f51c,soon-arrow
 1f51d,top-arrow
 1f6d0,place-of-worship
@@ -1486,7 +1486,7 @@
 1f197,squared-ok
 1f17f,p-button
 1f198,squared-sos
-1f199,up-button
+1f199,upexc-button
 1f19a,squared-vs
 1f201,squared-katakana-koko
 1f202,squared-katakana-sa

@@ -7,7 +7,9 @@
 require 'json'
 require 'csv'
 
-OUTPUT_PATH = File.join(Dir.pwd, "tmp", "custom_list.csv")
+OUTPUT_PATH = File.join(Dir.pwd, "tmp", "custom-list.csv")
+EMOJI_CHEAT_SHEET_PATH = File.join(Dir.pwd, "lib", "modified-cheatsheet.json")
+NULL_LIST_PATH = File.join(Dir.pwd, "lib", "null-list-rules.json")
 
 $stdout.sync = true
 
@@ -20,11 +22,11 @@ $stdout.sync = true
 puts "generating custom code point list"
 
 puts "loading elle kasai emoji cheatsheet list"
-doc = File.read(File.join(Dir.pwd, "lib", "elle_kasai_emoji_cheatsheet.json"))
+doc = File.read(EMOJI_CHEAT_SHEET_PATH)
 custom_entries = JSON.parse(doc);
 
 puts "loading null list"
-doc2 = File.read(File.join(Dir.pwd, "lib", "null_list_rules.json"))
+doc2 = File.read(File.join(NULL_LIST_PATH))
 null_entries = JSON.parse(doc2)
 
 puts "list generated, writing csv"
