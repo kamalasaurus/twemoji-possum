@@ -198,7 +198,9 @@ deal with the pull request process.
 ### Twemoji Cheat Sheet
 
 The cheat sheet will be maintained at another repo, downstream of
-twemoji-awesome.  It will be linked here when it's created!
+twemoji-awesome.  The link to it can be found here:
+
+https://github.com/kamalasaurus/twemoji-awesome-cheatsheet
 
 ### Contributing
 
