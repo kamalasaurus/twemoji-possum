@@ -82,26 +82,26 @@ to match the Unicode Consortium name for their code point:
 
 because Unicode encodes them as:
 
-post-office: 1f3e4
-camel: 1f42a
-mouse: 1f401
-cow: 1f404
-tiger: 1f405
-rabbit: 1f407
-cat: 1f408
-whale: 1f40b
-horse: 1f40e
-dog: 1f415
-pig: 1f416
-kiss: 1f48f
-calendar: 1f4c5
-speaker: 1f508
-sunglasses: 1f576
-satellite: 1f6f0
-egg: 1f95a
-umbrella: 2602
-snowman: 2603
-raised-hand: 270b
+- post-office: 1f3e4
+- camel: 1f42a
+- mouse: 1f401
+- cow: 1f404
+- tiger: 1f405
+- rabbit: 1f407
+- cat: 1f408
+- whale: 1f40b
+- horse: 1f40e
+- dog: 1f415
+- pig: 1f416
+- kiss: 1f48f
+- calendar: 1f4c5
+- speaker: 1f508
+- sunglasses: 1f576
+- satellite: 1f6f0
+- egg: 1f95a
+- umbrella: 2602
+- snowman: 2603
+- raised-hand: 270b
 
 The modified custom rules are in `lib/modified-cheat-sheet.json`, the
 original emoji-cheat-sheet can be found in
