@@ -40,6 +40,10 @@ def nameOf node
     .gsub("!", "exc")
     .gsub("'", "")
     .gsub("’", "")
+    .gsub(/å|ã/, "a")
+    .gsub(/é/, "e")
+    .gsub(/í/, "i")
+    .gsub(/ô/, "o")
 
   { node: node, name: name }
 end
@@ -67,6 +71,10 @@ def flagNameOf node
     .gsub("!", "exc")
     .gsub("'", "")
     .gsub("’", "")
+    .gsub(/å|ã/, "a")
+    .gsub(/é/, "e")
+    .gsub(/í/, "i")
+    .gsub(/ô/, "o")
 
   swapBackwardsFlagName name
 end
