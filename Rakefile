@@ -9,7 +9,7 @@ def runTask scriptPath
 end
 
 desc "run all transforms in sequence"
-task default: [:map_unicode, :map_twemoji, :custom_rules, :combine_maps, :convert_to_scss]
+task default: [:map_unicode, :map_twemoji, :custom_rules, :combine_maps, :convert_to_scss, :generate_master_groups]
 
 desc 'map unicode from source'
 task :map_unicode do
@@ -59,5 +59,15 @@ task :convert_to_scss do
   runTask("SassConverter.rb")
   puts "\n"
   puts "Generated Sass variable map for twemoji-awesome in dist directory".bold.green
+end
+
+desc "generate a limited master list of code points to Mac OS X groupings"
+task :generate_master_groups do
+  puts "\n"
+  puts "Generating Master Groups".bold.yellow
+  puts "\n"
+  runTask("MasterGroupList.rb")
+  puts "\n"
+  puts "Generated 'code point' : 'group name' json in dist directory".bold.green
 end
 
