@@ -34,11 +34,14 @@ def nameOf node
     .text
     .downcase
     .strip
+    .gsub(/⊛\s/, "")
+    .gsub(/&/, "and")
     .gsub(/\s+/, "-")
     .gsub(/,/, "")
     .gsub(/:/, "")
     .gsub("!", "exc")
     .gsub("'", "")
+    .gsub(/“|”/, "")
     .gsub("’", "")
     .gsub(/å|ã/, "a")
     .gsub(/é/, "e")
